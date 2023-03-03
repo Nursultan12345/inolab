@@ -73,6 +73,7 @@
                   lead-in to additional content. This card has even longer
                   content than the first to show that equal height action.
                 </p>
+                <h1>Hello world</h1>
               </div>
               <div class="card-footer">
                 <button
