@@ -1,0 +1,113 @@
+<template>
+  <div class="bgmain">
+    <div class="container">
+      <div class="header_menu">
+        <ul class="menu_items">
+          <div class="menu_items_one">
+            <li
+              class="menu_list"
+              v-for="(menu, index) in menuse"
+              :key="menu.id"
+            >
+              <a
+                @click="isActiveClass(index, $event)"
+                :class="{ active: isActive }"
+                href=""
+                style="color: black"
+                >{{ menu }}</a
+              >
+            </li>
+          </div>
+          <div class="menu_items_two_hover">
+            <div class="menu_items_two">
+              
+              <li
+                class="menu_list_two"
+                v-for="(menu, index) in menus"
+                :key="menu.id"
+              >
+                <a
+                  href=""
+                  @click="isActiveClass(index, $event)"
+                  :class="{ active: isActive }"
+                  style="color: white"
+                  >{{ menu }}</a
+                >
+              </li>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "header-menu",
+  data() {
+    return {
+      menuse: ["Каталог", "О нас", "Контакты"],
+      isActive: false,
+      menus: ["nurzhan@kaspinet.info", "+7 (700) 020-00-33"],
+    };
+  },
+  methods: {
+    isActiveClass(index, event) {
+      event.preventDefault();
+      index = !this.isActive;
+      console.log(index);
+    },
+  },
+};
+</script>
+<style scoped>
+a {
+  text-decoration: none;
+
+  font-family: "GolosText";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+ul,
+li {
+  list-style-type: none;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header_menu {
+  margin: 28px 0px 32px 0px;
+}
+.menu_items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+.menu_list {
+  background: #f4f5f8;
+  padding: 12px 20px;
+  margin-right: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.menu_items_two {
+  display: flex;
+}
+.menu_list_two {
+  background: black;
+  padding: 12px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.menu_items_one {
+  display: flex;
+  padding-right: 450px;
+}
+
+</style>
